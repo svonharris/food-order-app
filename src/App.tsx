@@ -9,18 +9,21 @@ function App() {
       <Header />
       <main>
         {/* hero */}
-        <section className="relative h-[75vh]">
-          <h1 className="text-center">Slurp</h1>
-          <p className="text-center max-w-[500px] mt-10 mx-auto">
-            Bacon ipsum dolor amet venison jowl pancetta ground round. Kielbasa
-            fatback salami tenderloin pork, sausage andouille ham pastrami
-            shankle rump ground round meatball.
-          </p>
+        <section className="relative">
+          <div className="max-w-[1400px] mx-auto my-0 h-[75vh]">
+            <h1 className="text-center">Slurp</h1>
+            <p className="text-center max-w-[500px] mt-10 mx-auto">
+              Bacon ipsum dolor amet venison jowl pancetta ground round.
+              Kielbasa fatback salami tenderloin pork, sausage andouille ham
+              pastrami shankle rump ground round meatball.
+            </p>
+            <div className="absolute bottom-1">
+              <Button title={"Order Now"} icon={"arrowBendDown"} />
+            </div>
+          </div>
+
           <div className="bg-purple-600 h-[300px] w-[500px] absolute right-0 bottom-0">
             image of food
-          </div>
-          <div className="absolute bottom-1">
-            <Button title={"Order Now"} icon={"arrowBendDown"} />
           </div>
         </section>
         {/* ordering */}
