@@ -24,12 +24,17 @@ const Button = ({ title, icon }: ButtonProps) => {
 
   return (
     <div className="flex flex-row items-center gap-1">
-      <button className="btn flex flex-row bg-amber-500 p-2 rounded-sm">
+      <button className="btn flex flex-row bg-transparent border-2 border-purple-600 p-2 rounded-sm font-semibold">
         {title}
       </button>
       {/* <div> */}
       {foundIcon ? (
-        <span style={{ marginTop: "10px", fontSize: "text-5xl" }}>
+        <span
+          style={{
+            marginTop: "10px",
+            fontSize: "40px",
+          }}
+        >
           {foundIcon.icon}
         </span>
       ) : null}

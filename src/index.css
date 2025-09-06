@@ -46,9 +46,13 @@ body {
   min-width: 320px;
   min-height: 100vh; */
   margin: 0 auto;
+}
+
+section {
+  margin: 0 auto;
   max-width: 1400px;
-  padding-left: 2%;
-  padding-right: 2%;
+  /* padding-left: 2%;
+  padding-right: 2%; */
 }
 
 h1 {

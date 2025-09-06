@@ -1,3 +1,4 @@
+import Header from "./components/Header/Header.tsx";
 import Button from "./components/Button/Button.tsx";
 
 import "./index.css";
@@ -5,19 +6,17 @@ import "./index.css";
 function App() {
   return (
     <>
-      <header className="h-10">
-        <div className="logoBox bg-purple-600 h-40 w-30 absolute top-0"></div>
-      </header>
+      <Header />
       <main>
         {/* hero */}
-        <section className="relative h-[60vh]">
+        <section className="relative h-[75vh]">
           <h1 className="text-center">Slurp</h1>
           <p className="text-center max-w-[500px] mt-10 mx-auto">
             Bacon ipsum dolor amet venison jowl pancetta ground round. Kielbasa
             fatback salami tenderloin pork, sausage andouille ham pastrami
             shankle rump ground round meatball.
           </p>
-          <div className="bg-gray-400 h-[300px] w-[500px] absolute right-0">
+          <div className="bg-purple-600 h-[300px] w-[500px] absolute right-0 bottom-0">
             image of food
           </div>
           <div className="absolute bottom-1">
