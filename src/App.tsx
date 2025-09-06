@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header.tsx";
 import Button from "./components/Button/Button.tsx";
+import Tabs from "./components/Tabs/Tabs.tsx";
 
 import "./index.css";
 
@@ -27,9 +28,10 @@ function App() {
           </div>
         </section>
         {/* ordering */}
-        <section className="columns-2 gap-8">
-          {/* <div>description and image</div> */}
-          {/* <div>customization tabs</div> */}
+        <section className="max-w-[1400px] mx-auto my-0 py-10 grid grid-cols-2">
+          <div>description and image</div>
+          {/* customization tabs */}
+          <Tabs />
         </section>
         {/* checkout */}
         <section></section>
