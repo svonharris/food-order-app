@@ -1,5 +1,4 @@
 import Button from "./components/Button/Button.tsx";
-// import { PiArrowBendRightDownFill } from "react-icons/pi";
 
 import "./index.css";
 
@@ -22,7 +21,7 @@ function App() {
             image of food
           </div>
           <div className="absolute bottom-1">
-            <Button title={"Order Now"} icon={"arrowBendRight"} />
+            <Button title={"Order Now"} icon={"arrowBendDown"} />
           </div>
         </section>
         {/* ordering */}
