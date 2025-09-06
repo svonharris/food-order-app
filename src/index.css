@@ -48,13 +48,6 @@ body {
   margin: 0 auto;
 }
 
-section {
-  margin: 0 auto;
-  max-width: 1400px;
-  /* padding-left: 2%;
-  padding-right: 2%; */
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
