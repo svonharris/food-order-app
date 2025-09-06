@@ -3,6 +3,7 @@
 ## Project Description
 
 Simple app to order food online.
+The inspiration folder holds information of my thought process behide this app.
 
 ## How to run
 
