@@ -1,62 +1,41 @@
 import { useState } from "react";
-import "./Tabs.css";
+import { testingData } from "../../Data/Data.tsx";
 
 const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("tab1");
+  const [activeTab, setActiveTab] = useState("Tab 1");
 
   const handleTabClick = (tabName: string) => {
     setActiveTab(tabName);
   };
 
   return (
-    <div className="tabs-container">
-      <div className="tab-buttons">
-        <button
-          className={`tab-button${activeTab === "tab1" ? " active" : ""}`}
-          onClick={() => handleTabClick("tab1")}
-        >
-          Tab 1
-        </button>
-        <button
-          className={`tab-button${activeTab === "tab2" ? " active" : ""}`}
-          onClick={() => handleTabClick("tab2")}
-        >
-          Tab 2
-        </button>
-        <button
-          className={`tab-button${activeTab === "tab3" ? " active" : ""}`}
-          onClick={() => handleTabClick("tab3")}
-        >
-          Tab 3
-        </button>
+    <div className="w-[100%] border-[1px] border-solid border-white">
+      {/* Tab Buttons Group */}
+      <div className="flex">
+        {testingData.map((data) => (
+          <button
+            key={data.id}
+            className={`cursor-pointer outline-purple-600 py-[14px] px-[16px] border-[1px] border-solid border-white hover:bg-purple-600 ${
+              activeTab === data.name ? "bg-purple-600" : ""
+            }`}
+            onClick={() => handleTabClick(data.name)}
+          >
+            {data.name}
+          </button>
+        ))}
       </div>
 
-      <div
-        id="tab1"
-        className={`tab-content${activeTab === "tab1" ? " active" : ""}`}
-        style={{ display: activeTab === "tab1" ? "block" : "none" }}
-      >
-        <h3>Content for Tab 1</h3>
-        <p>This is the content displayed when Tab 1 is active.</p>
-      </div>
-
-      <div
-        id="tab2"
-        className={`tab-content${activeTab === "tab2" ? " active" : ""}`}
-        style={{ display: activeTab === "tab2" ? "block" : "none" }}
-      >
-        <h3>Content for Tab 2</h3>
-        <p>This is the content displayed when Tab 2 is active.</p>
-      </div>
-
-      <div
-        id="tab3"
-        className={`tab-content${activeTab === "tab3" ? " active" : ""}`}
-        style={{ display: activeTab === "tab3" ? "block" : "none" }}
-      >
-        <h3>Content for Tab 3</h3>
-        <p>This is the content displayed when Tab 3 is active.</p>
-      </div>
+      {/* Tab Content */}
+      {testingData.map((data) => (
+        <div
+          key={data.id}
+          className={"hidden py-[6px] px-[12px]"}
+          style={{ display: activeTab === data.name ? "block" : "none" }}
+        >
+          <h3>{data.title}</h3>
+          <p>{data.content}</p>
+        </div>
+      ))}
     </div>
   );
 };
