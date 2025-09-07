@@ -5,7 +5,6 @@
 
 .tab-buttons {
   display: flex;
-  background-color: #f1f1f1;
 }
 
 .tab-button {
@@ -16,14 +15,15 @@
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 17px;
+  border: 1px solid #fff;
 }
 
 .tab-button:hover {
-  background-color: #ddd;
+  background-color: var(--color-purple-600);
 }
 
 .tab-button.active {
-  background-color: #ccc;
+  background-color: var(--color-purple-600);
 }
 
 .tab-content {
