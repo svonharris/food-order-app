@@ -2,46 +2,35 @@
 import "./Tabs.css";
 
 const Tabs = () => {
-  //   const i;
-  //   const tabcontent;
-  //   const tablinks;
+  type TabsProps = {
+    tabName: string;
+    event: React.MouseEvent<HTMLButtonElement>;
+  };
 
-  //   const tabcontent = () => {
-  //     document.getElementsByClassName("tab-content");
-  //   };
-
-  //   const tabcontent = document.getElementsByClassName("tab-content");
-  //   for (i = 0; i < tabcontent.length; i++) {
-  //     tabcontent[i].style.display = "none";
-  //   }
-
-  // tabcontent.map((tab) => {});
-
-  function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
+  const openTab = ({ event, tabName }: TabsProps) => {
     // Get all elements with class="tab-content" and hide them
-    tabcontent = document.getElementsByClassName("tab-content");
-    console.log(tabcontent);
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
+    const tabcontent = document.getElementsByClassName("tab-content");
+    const tabcontentArray = Array.from(tabcontent);
+    tabcontentArray.map((tab) => {
+      (tab as HTMLElement).style.display = "none";
+    });
 
     // Get all elements with class="tab-button" and remove the class "active"
-    tablinks = document.getElementsByClassName("tab-button");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    const tablinks = document.getElementsByClassName("tab-button");
+    const tablinksArray = Array.from(tablinks);
+    tablinksArray.map((tab) => {
+      tab.className = tab.className.replace(" active", "");
+    });
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+    const currentTabButton = document.getElementById(tabName);
+    (currentTabButton as HTMLElement).style.display = "block";
+    (event.target as HTMLElement).className += " active";
+  };
 
   // Set the first tab as active by default when the page loads
-  document.addEventListener("DOMContentLoaded", (event) => {
-    document.querySelector(".tab-button").click();
+  document.addEventListener("DOMContentLoaded", () => {
+    (document.querySelector(".tab-button") as HTMLElement).click();
   });
 
   return (
@@ -49,24 +38,24 @@ const Tabs = () => {
       <div className="tab-buttons">
         <button
           className="tab-button active"
-          onClick={() => {
-            openTab(event, "tab1");
+          onClick={(event) => {
+            openTab({ event, tabName: "tab1" });
           }}
         >
           Tab 1
         </button>
         <button
           className="tab-button"
-          onClick={() => {
-            openTab(event, "tab2");
+          onClick={(event) => {
+            openTab({ event, tabName: "tab2" });
           }}
         >
           Tab 2
         </button>
         <button
           className="tab-button"
-          onClick={() => {
-            openTab(event, "tab3");
+          onClick={(event) => {
+            openTab({ event, tabName: "tab3" });
           }}
         >
           Tab 3
