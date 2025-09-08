@@ -24,7 +24,7 @@ const Button = ({ title, icon }: ButtonProps) => {
 
   return (
     <div className="flex flex-row items-center gap-1">
-      <button className="btn flex flex-row bg-transparent border-2 border-purple-600 p-2 rounded-sm font-semibold">
+      <button className="btn flex flex-row bg-transparent border-2 border-purple-600 p-2 rounded-sm font-semibold cursor-pointer">
         {title}
       </button>
       {/* <div> */}
