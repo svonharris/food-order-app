@@ -1,8 +1,14 @@
 // import React from 'react'
 import { useState } from "react";
-import { FaLeaf } from "react-icons/fa6";
 
-const Tab = () => {
+type TabProps = {
+  title: string;
+  content: string;
+  price?: number;
+  icon?: React.ReactNode;
+};
+
+const Tab = (props: TabProps) => {
   const [active, setActive] = useState(false);
 
   const handleItemClick = (n: boolean) => {
@@ -18,10 +24,14 @@ const Tab = () => {
         onClick={() => handleItemClick(true)}
       >
         <div className="bg-white p-[20px] rounded-full">
-          <FaLeaf size={30} className="fill-purple-600" />
+          {/* <FaLeaf size={30} className="fill-purple-600" /> */}
+          {props.icon}
         </div>
-        <p className="my-1">Kale</p>
-        <p className="block text-xs">(+$2.00)</p>
+        <p className="my-1">{props.title}</p>
+        <p>{props.content}</p>
+        <p className="block text-xs">
+          + ${props.price !== undefined ? props.price.toFixed(2) : "0.00"}
+        </p>
       </div>
     </>
   );
