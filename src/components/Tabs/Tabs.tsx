@@ -34,11 +34,13 @@ const Tabs = () => {
         >
           <div className="inline-block bg-white p-[20px] rounded-full">
             {/* {<data.icon size={30} className="fill-purple-600" />} */}
-            {data.icon}
+            {/* <{data.icon}/> */}
           </div>
           <h3>{data.title}</h3>
           <p>{data.content}</p>
-          <p className="block text-xs">+ ${data.price}.00</p>
+          <p className="block text-xs">
+            + ${data.price ? data.price.toFixed(2) : 0}
+          </p>
         </div>
       ))}
       {/* <div className="flex flex-row gap-[10px]">
