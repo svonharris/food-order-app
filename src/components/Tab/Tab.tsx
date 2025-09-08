@@ -15,9 +15,7 @@ const Tab = () => {
         className={`${
           active ? "bg-purple-600" : ""
         } flex flex-col items-center cursor-pointer hover:bg-purple-600 py-[10px] px-[20px]`}
-        onClick={() => {
-          handleItemClick(true);
-        }}
+        onClick={() => handleItemClick(true)}
       >
         <div className="bg-white p-[20px] rounded-full">
           <FaLeaf size={30} className="fill-purple-600" />
