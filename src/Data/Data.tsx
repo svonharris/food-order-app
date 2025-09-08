@@ -1,3 +1,8 @@
+import { FaLeaf } from "react-icons/fa6";
+import { GiBellPepper } from "react-icons/gi";
+import { GiCorn } from "react-icons/gi";
+import { FaEgg } from "react-icons/fa6";
+
 export const testingData = [
   {
     name: "Tab 1",
@@ -16,5 +21,36 @@ export const testingData = [
     id: 3,
     title: "Content for Tab 3",
     content: "This is the content displayed when Tab 3 is active.",
+  },
+];
+
+export const ingredients = [
+  {
+    id: 1,
+    name: "Kale",
+    price: 2.0,
+    description: "Leafy vegetables",
+    icon: FaLeaf,
+  },
+  {
+    id: 2,
+    name: "Bell Pepper",
+    price: 2.0,
+    description: "Crispy multicolored peppers",
+    icon: GiBellPepper,
+  },
+  {
+    id: 3,
+    name: "Corn",
+    price: 1.0,
+    description: "Sweet golden niblets",
+    icon: GiCorn,
+  },
+  {
+    id: 4,
+    name: "Ajitsuke Tamago",
+    price: 4.0,
+    description: "Soy marinated egg",
+    icon: FaEgg,
   },
 ];
