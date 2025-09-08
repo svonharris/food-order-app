@@ -1,6 +1,7 @@
 import Header from "./components/Header/Header.tsx";
 import Button from "./components/Button/Button.tsx";
 import Tabs from "./components/Tabs/Tabs.tsx";
+import Tab from "./components/Tab/Tab.tsx";
 
 import "./index.css";
 
@@ -32,6 +33,7 @@ function App() {
           <div>description and image</div>
           {/* customization tabs */}
           <Tabs />
+          <Tab />
         </section>
         {/* checkout */}
         <section></section>
