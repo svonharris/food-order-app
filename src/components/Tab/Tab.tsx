@@ -14,7 +14,7 @@ const Tab = () => {
       <div
         className={`${
           active ? "bg-purple-600" : ""
-        } flex flex-col items-center cursor-pointer hover:bg-purple-600 py-[20px] px-[10px]`}
+        } flex flex-col items-center cursor-pointer hover:bg-purple-600 py-[10px] px-[20px]`}
         onClick={() => {
           itemSwitch(true);
         }}
