@@ -28,8 +28,8 @@ export const testingData = [
     title: "Kale",
     content: "Leafy vegetables",
     price: 2.0,
-    icon: <FaLeaf size={30} className="fill-purple-600" />,
-    // icon: "FaLeaf",
+    // icon: <FaLeaf />,
+    icon: FaLeaf,
   },
 ];
 
