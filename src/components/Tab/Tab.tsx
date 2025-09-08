@@ -5,7 +5,7 @@ import { FaLeaf } from "react-icons/fa6";
 const Tab = () => {
   const [active, setActive] = useState(false);
 
-  const itemSwitch = (n: boolean) => {
+  const handleItemClick = (n: boolean) => {
     n === active ? setActive(false) : setActive(true);
   };
 
@@ -16,7 +16,7 @@ const Tab = () => {
           active ? "bg-purple-600" : ""
         } flex flex-col items-center cursor-pointer hover:bg-purple-600 py-[10px] px-[20px]`}
         onClick={() => {
-          itemSwitch(true);
+          handleItemClick(true);
         }}
       >
         <div className="bg-white p-[20px] rounded-full">
