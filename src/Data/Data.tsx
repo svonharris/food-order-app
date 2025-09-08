@@ -22,6 +22,15 @@ export const testingData = [
     title: "Content for Tab 3",
     content: "This is the content displayed when Tab 3 is active.",
   },
+  {
+    name: "Tab 4",
+    id: 4,
+    title: "Kale",
+    content: "Leafy vegetables",
+    price: 2.0,
+    icon: <FaLeaf size={30} className="fill-purple-600" />,
+    // icon: "FaLeaf",
+  },
 ];
 
 export const ingredients = [
