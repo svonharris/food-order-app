@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { testingData } from "../../Data/Data.tsx";
+import Tab from "../Tab/Tab.tsx";
+
+// type TabsProps = {
+//   title: string;
+//   content: string;
+//   price?: number;
+//   icon?: React.ReactNode;
+// };
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Tab 1");
@@ -32,22 +40,14 @@ const Tabs = () => {
           className={"hidden py-[6px] px-[12px]"}
           style={{ display: activeTab === data.name ? "block" : "none" }}
         >
-          <div className="inline-block bg-white p-[20px] rounded-full">
-            {/* {<data.icon size={30} className="fill-purple-600" />} */}
-            {/* <{data.icon}/> */}
-          </div>
-          <h3>{data.title}</h3>
-          <p>{data.content}</p>
-          <p className="block text-xs">
-            + ${data.price ? data.price.toFixed(2) : 0}
-          </p>
+          <Tab
+            title={data.title}
+            content={data.content}
+            price={data.price}
+            icon={data.icon}
+          />
         </div>
       ))}
-      {/* <div className="flex flex-row gap-[10px]">
-        <Tab />
-        <Tab />
-        <Tab />
-      </div> */}
     </div>
   );
 };
