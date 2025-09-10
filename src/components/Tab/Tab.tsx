@@ -1,39 +1,53 @@
-// import React from 'react'
 import { useState } from "react";
 
 type TabProps = {
   title: string;
-  content: string;
-  price?: number;
-  icon?: React.ReactNode;
+  ingredients?: {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    icon: React.ElementType;
+  }[];
 };
 
 const Tab = (props: TabProps) => {
-  const [active, setActive] = useState(false);
+  // Array of selected ingredient IDs
+  const [active, setActive] = useState<number[]>([]);
 
-  const handleItemClick = (n: boolean) => {
-    n === active ? setActive(false) : setActive(true);
+  const handleFoodSelect = (id: number) => {
+    setActive(
+      // prev is an array representing the currently selected IDs before the click.
+      (prev) =>
+        prev.includes(id)
+          ? prev.filter((itemId) => itemId !== id) // false removes ID from array (unselect)
+          : [...prev, id] // add ID to array (select)
+    );
   };
 
   return (
-    <>
-      <div
-        className={`${
-          active ? "bg-purple-600" : ""
-        } flex flex-col items-center cursor-pointer hover:bg-purple-600 py-[10px] px-[20px]`}
-        onClick={() => handleItemClick(true)}
-      >
-        <div className="bg-white p-[20px] rounded-full">
-          {/* <FaLeaf size={30} className="fill-purple-600" /> */}
-          {props.icon}
-        </div>
-        <p className="my-1">{props.title}</p>
-        <p>{props.content}</p>
-        <p className="block text-xs">
-          + ${props.price !== undefined ? props.price.toFixed(2) : "0.00"}
-        </p>
-      </div>
-    </>
+    <div className="flex flex-row flex-wrap gap-1 py-[6px] px-[12px]">
+      {props.ingredients !== undefined
+        ? props.ingredients.map((ingredient) => (
+            <button
+              key={ingredient.id}
+              type="button"
+              className={`${
+                active.includes(ingredient.id) ? "bg-purple-600" : ""
+              } 
+              cursor-pointer hover:bg-purple-600 py-[10px] px-[10px] grow-0 shrink-0 basis-[25%] text-center flex flex-col items-center`}
+              onClick={() => handleFoodSelect(ingredient.id)}
+            >
+              <div className="bg-white p-[20px] rounded-full max-w-fit">
+                <ingredient.icon size={30} className="fill-purple-600" />
+              </div>
+              <p className="my-1">{ingredient.title}</p>
+              <p>{ingredient.description}</p>
+              <p className="block text-xs">+ ${ingredient.price.toFixed(2)}</p>
+            </button>
+          ))
+        : "No ingredients available."}
+    </div>
   );
 };
 
