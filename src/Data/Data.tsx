@@ -12,9 +12,9 @@ export const testingData = [
   },
   {
     name: "Tab 2",
+    id: 2,
     title: "Content for Tab 2",
     content: "This is the content displayed when Tab 2 is active.",
-    id: 2,
   },
   {
     name: "Tab 3",
@@ -25,11 +25,36 @@ export const testingData = [
   {
     name: "Tab 4",
     id: 4,
-    title: "Kale",
-    content: "Leafy vegetables",
-    price: 2.0,
-    icon: <FaLeaf />,
-    // icon: FaLeaf,
+    ingredients: [
+      {
+        id: 1,
+        title: "Kale",
+        price: 2.0,
+        description: "Leafy vegetables",
+        icon: FaLeaf,
+      },
+      {
+        id: 2,
+        title: "Bell Pepper",
+        price: 2.0,
+        description: "Crispy multicolored peppers",
+        icon: GiBellPepper,
+      },
+      {
+        id: 3,
+        title: "Corn",
+        price: 1.0,
+        description: "Sweet golden niblets",
+        icon: GiCorn,
+      },
+      {
+        id: 4,
+        title: "Ajitsuke Tamago",
+        price: 4.0,
+        description: "Soy marinated egg",
+        icon: FaEgg,
+      },
+    ],
   },
 ];
 
