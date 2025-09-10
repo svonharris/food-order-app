@@ -2,6 +2,8 @@ import { FaLeaf } from "react-icons/fa6";
 import { GiBellPepper } from "react-icons/gi";
 import { GiCorn } from "react-icons/gi";
 import { FaEgg } from "react-icons/fa6";
+import { LuSprout } from "react-icons/lu";
+import { PiCirclesThree } from "react-icons/pi";
 
 export const testingData = [
   {
@@ -53,6 +55,20 @@ export const testingData = [
         price: 4.0,
         description: "Soy marinated egg",
         icon: FaEgg,
+      },
+      {
+        id: 5,
+        title: "Bean Sprouts",
+        price: 1.0,
+        description: "Crunchy sprouts",
+        icon: LuSprout,
+      },
+      {
+        id: 6,
+        title: "Green Onions",
+        price: 0.5,
+        description: "Fresh scallions",
+        icon: PiCirclesThree,
       },
     ],
   },
