@@ -2,13 +2,6 @@ import { useState } from "react";
 import { testingData } from "../../Data/Data.tsx";
 import Tab from "../Tab/Tab.tsx";
 
-// type TabsProps = {
-//   title: string;
-//   content: string;
-//   price?: number;
-//   icon?: React.ReactNode;
-// };
-
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("Tab 1");
 
@@ -37,15 +30,9 @@ const Tabs = () => {
       {testingData.map((data) => (
         <div
           key={data.id}
-          className={"hidden py-[6px] px-[12px]"}
-          style={{ display: activeTab === data.name ? "block" : "none" }}
+          style={{ display: activeTab === data.name ? "flex" : "none" }}
         >
-          <Tab
-            title={data.title}
-            content={data.content}
-            price={data.price}
-            icon={data.icon}
-          />
+          <Tab title={data.title ?? ""} ingredients={data.ingredients} />
         </div>
       ))}
     </div>
