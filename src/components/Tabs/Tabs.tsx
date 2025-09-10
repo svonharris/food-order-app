@@ -10,9 +10,9 @@ const Tabs = () => {
   };
 
   return (
-    <div className="w-[100%] border-[1px] border-solid border-white">
+    <div className="w-[100%]">
       {/* Tab Buttons Group */}
-      <div className="flex">
+      <div className="flex gap-4">
         {testingData.map((data) => (
           <button
             key={data.id}
