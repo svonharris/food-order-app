@@ -1,16 +1,9 @@
 import { useState } from "react";
-import { foodData } from "../../Data/Data.tsx";
 import Tab from "../Tab/Tab.tsx";
 
-// type TabsProps = {
-//   data: {
-//     id: number;
-//     category: string;
-//     ingredients: {}[];
-//   };
-// };
+type TabsProps = { data: {}[] };
 
-const Tabs = () => {
+const Tabs = (props: TabsProps) => {
   const [activeTab, setActiveTab] = useState("Base");
 
   const handleTabClick = (tabName: string) => {
@@ -22,7 +15,7 @@ const Tabs = () => {
       <div className="w-[100%]">
         {/* Tab Buttons Group */}
         <div className="flex gap-4">
-          {foodData.map((data) => (
+          {props.data.map((data: any) => (
             <button
               key={data.id}
               className={`cursor-pointer outline-purple-600 py-[14px] px-[16px] border-[1px] border-solid border-white hover:bg-purple-600 ${
@@ -46,7 +39,7 @@ const Tabs = () => {
         </div>
 
         {/* Tab Content */}
-        {foodData.map((data) => (
+        {props.data.map((data: any) => (
           <div
             key={data.id}
             className={`${
