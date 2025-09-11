@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 type TabProps = {
-  title: string;
-  showTitle: boolean;
+  category: string;
+  showCategory: boolean;
   ingredients?: {
     id: number;
-    title: string;
+    name: string;
     price: number;
     description: string;
     icon: React.ElementType;
@@ -34,10 +34,10 @@ const Tab = (props: TabProps) => {
       <div className="flex flex-row flex-wrap gap-1">
         <p
           className={`grow-0 shrink-0 basis-[100%] ${
-            props.showTitle === true ? "" : "hidden"
+            props.showCategory === true ? "" : "hidden"
           }`}
         >
-          {props.title}
+          {props.category}
         </p>
         {props.ingredients !== undefined
           ? props.ingredients.map((ingredient) => (
@@ -54,7 +54,7 @@ const Tab = (props: TabProps) => {
                 <div className="bg-white p-[20px] rounded-full max-w-fit">
                   <ingredient.icon size={30} className="fill-purple-600" />
                 </div>
-                <p className="my-1">{ingredient.title}</p>
+                <p className="my-1">{ingredient.name}</p>
                 <p>{ingredient.description}</p>
                 <p className="block text-xs">
                   + ${ingredient.price.toFixed(2)}

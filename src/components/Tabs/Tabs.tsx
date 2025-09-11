@@ -53,9 +53,9 @@ const Tabs = (props: TabsProps) => {
             }`}
           >
             <Tab
-              title={data.category}
+              category={data.category}
               ingredients={data.ingredients}
-              showTitle={activeTab === "ViewAll" ? true : false}
+              showCategory={activeTab === "ViewAll" ? true : false}
             />
           </div>
         ))}
