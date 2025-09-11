@@ -2,31 +2,80 @@ import { FaLeaf } from "react-icons/fa6";
 import { GiBellPepper } from "react-icons/gi";
 import { GiCorn } from "react-icons/gi";
 import { FaEgg } from "react-icons/fa6";
-import { LuSprout } from "react-icons/lu";
+import { GiSprout } from "react-icons/gi";
 import { PiCirclesThree } from "react-icons/pi";
+import { FaShrimp } from "react-icons/fa6";
+import { GiPig } from "react-icons/gi";
+import { PiBirdFill } from "react-icons/pi";
+import { SiOpentofu } from "react-icons/si";
+import { FaBowlRice } from "react-icons/fa6";
+import { GiNoodles } from "react-icons/gi";
 
-export const testingData = [
+export const foodData = [
   {
-    name: "Tab 1",
+    category: "Base",
     id: 1,
-    title: "Content for Tab 1",
-    content: "This is the content displayed when Tab 1 is active.",
+    ingredients: [
+      {
+        id: 1,
+        title: "Noodles",
+        price: 4.0,
+        description: "Wheat noodles",
+        icon: GiNoodles,
+      },
+      {
+        id: 2,
+        title: "White Rice",
+        price: 3.0,
+        description: "Steamed white rice",
+        icon: FaBowlRice,
+      },
+      // {
+      //   id: 3,
+      //   title: "Brown Rice",
+      //   price: 3.5,
+      //   description: "Healthy brown rice",
+      //   icon: FaBowlRice,
+      // },
+    ],
   },
   {
-    name: "Tab 2",
+    category: "Proteins",
     id: 2,
-    title: "Content for Tab 2",
-    content: "This is the content displayed when Tab 2 is active.",
+    ingredients: [
+      {
+        id: 1,
+        title: "Pork Belly",
+        price: 5.5,
+        description: "Braised pork belly",
+        icon: GiPig,
+      },
+      {
+        id: 2,
+        title: "Chicken",
+        price: 5.0,
+        description: "Grilled chicken breast",
+        icon: PiBirdFill,
+      },
+      {
+        id: 3,
+        title: "Shrimp",
+        price: 6.0,
+        description: "Succulent shrimp",
+        icon: FaShrimp,
+      },
+      {
+        id: 4,
+        title: "Tofu",
+        price: 4.0,
+        description: "Tofu cubes marinated in soy sauce",
+        icon: SiOpentofu,
+      },
+    ],
   },
   {
-    name: "Tab 3",
+    category: "Veggies",
     id: 3,
-    title: "Content for Tab 3",
-    content: "This is the content displayed when Tab 3 is active.",
-  },
-  {
-    name: "Tab 4",
-    id: 4,
     ingredients: [
       {
         id: 1,
@@ -61,7 +110,7 @@ export const testingData = [
         title: "Bean Sprouts",
         price: 1.0,
         description: "Crunchy sprouts",
-        icon: LuSprout,
+        icon: GiSprout,
       },
       {
         id: 6,
