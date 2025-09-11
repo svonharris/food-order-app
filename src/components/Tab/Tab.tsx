@@ -2,6 +2,7 @@ import { useState } from "react";
 
 type TabProps = {
   title: string;
+  showTitle: boolean;
   ingredients?: {
     id: number;
     title: string;
@@ -17,40 +18,52 @@ const Tab = (props: TabProps) => {
 
   const handleFoodSelect = (id: number, price: number) => {
     setActive(
-      // prev is an array representing the currently selected IDs before the click.
       (prev) =>
         prev.includes(id)
           ? prev.filter((itemId) => itemId !== id) // false removes ID from array (unselect)
           : [...prev, id] // add ID to array (select)
     );
     console.log(`Price: ${price}`);
-    // const total = []; total.push(price) // Collect all the prices in an array, reduce method to sum them up, save total to state.
+    // Collect all the prices in an array, reduce method to sum them up, save total to state.
+    // const newPrice = price; setTotalPrice(prevArray => [...prevArray, newPrice]);
     // setTotalPrice(total.reduce((acc, curr) => acc + curr, 0));
   };
 
   return (
-    <div className="flex flex-row flex-wrap gap-1">
-      {props.ingredients !== undefined
-        ? props.ingredients.map((ingredient) => (
-            <button
-              key={ingredient.id}
-              type="button"
-              className={`${
-                active.includes(ingredient.id) ? "bg-purple-600" : ""
-              } 
-              cursor-pointer hover:bg-purple-600 py-[10px] px-[10px] grow-0 shrink-0 basis-[25%] text-center flex flex-col items-center`}
-              onClick={() => handleFoodSelect(ingredient.id, ingredient.price)}
-            >
-              <div className="bg-white p-[20px] rounded-full max-w-fit">
-                <ingredient.icon size={30} className="fill-purple-600" />
-              </div>
-              <p className="my-1">{ingredient.title}</p>
-              <p>{ingredient.description}</p>
-              <p className="block text-xs">+ ${ingredient.price.toFixed(2)}</p>
-            </button>
-          ))
-        : "No ingredients available."}
-    </div>
+    <>
+      <div className="flex flex-row flex-wrap gap-1">
+        <p
+          className={`grow-0 shrink-0 basis-[100%] ${
+            props.showTitle === true ? "" : "hidden"
+          }`}
+        >
+          {props.title}
+        </p>
+        {props.ingredients !== undefined
+          ? props.ingredients.map((ingredient) => (
+              <button
+                key={ingredient.id}
+                type="button"
+                className={`${
+                  active.includes(ingredient.id) ? "bg-purple-600" : ""
+                } cursor-pointer hover:bg-purple-600 py-[10px] px-[10px] grow-0 shrink-0 basis-[25%] text-center flex flex-col items-center`}
+                onClick={() =>
+                  handleFoodSelect(ingredient.id, ingredient.price)
+                }
+              >
+                <div className="bg-white p-[20px] rounded-full max-w-fit">
+                  <ingredient.icon size={30} className="fill-purple-600" />
+                </div>
+                <p className="my-1">{ingredient.title}</p>
+                <p>{ingredient.description}</p>
+                <p className="block text-xs">
+                  + ${ingredient.price.toFixed(2)}
+                </p>
+              </button>
+            ))
+          : "No ingredients available."}
+      </div>
+    </>
   );
 };
 
