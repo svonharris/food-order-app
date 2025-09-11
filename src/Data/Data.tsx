@@ -19,24 +19,24 @@ export const foodData = [
       {
         id: 1,
         name: "Ramen Noodles",
-        price: 4.0,
+        price: 14.0,
         description: "Wheat noodles",
         icon: GiNoodles,
       },
       {
         id: 2,
         name: "White Rice",
-        price: 3.0,
+        price: 10.0,
         description: "Steamed white rice",
         icon: FaBowlRice,
       },
-      // {
-      //   id: 3,
-      //   name: "Brown Rice",
-      //   price: 3.5,
-      //   description: "Healthy brown rice",
-      //   icon: FaBowlRice,
-      // },
+      {
+        id: 3,
+        name: "Brown Rice",
+        price: 10,
+        description: "Healthy brown rice",
+        icon: FaBowlRice,
+      },
     ],
   },
   {
