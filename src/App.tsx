@@ -2,6 +2,7 @@ import Header from "./components/Header/Header.tsx";
 import Button from "./components/Button/Button.tsx";
 import Tabs from "./components/Tabs/Tabs.tsx";
 import { foodData } from "./Data/Data.tsx";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart.tsx";
 
 import "./index.css";
 
@@ -35,7 +36,9 @@ function App() {
           <Tabs data={foodData} />
         </section>
         {/* checkout */}
-        <section></section>
+        <section>
+          <ShoppingCart />
+        </section>
       </main>
     </>
   );
