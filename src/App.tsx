@@ -24,10 +24,6 @@ function App() {
               <Button title={"Order Now"} icon={"arrowBendDown"} />
             </div>
           </div>
-
-          <div className="bg-purple-600 h-[300px] w-[500px] absolute right-0 bottom-0">
-            image of food
-          </div>
         </section>
         {/* ordering */}
         <section className="max-w-[1400px] mx-auto my-0 py-10 grid grid-cols-2">
@@ -36,7 +32,7 @@ function App() {
           <Tabs data={foodData} />
         </section>
         {/* checkout */}
-        <section>
+        <section className="max-w-[1400px] mx-auto my-0 py-10">
           <ShoppingCart />
         </section>
       </main>
