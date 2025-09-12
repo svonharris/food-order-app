@@ -1,5 +1,7 @@
 import OrderForm from "../Forms/OrderForm";
 import { BsQuestionCircleFill } from "react-icons/bs";
+import Button from "../Button/Button";
+import Link from "../Link/Link";
 // import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const ShoppingCart = () => {
@@ -30,9 +32,8 @@ const ShoppingCart = () => {
                 <option value="4">4</option>
               </select>
             </div>
-            <button className="btn flex flex-row bg-transparent border-2 border-purple-600 p-2 rounded-sm font-semibold cursor-pointer">
-              Remove
-            </button>
+            <Button variant="link">Remove</Button>
+            <Link variant="primary">Edit</Link>
           </div>
           <div className="col-span-2 mt-5">
             <OrderForm />
@@ -59,9 +60,7 @@ const ShoppingCart = () => {
             <p className="font-bold mb-1 py-2 grid grid-cols-2">
               Order total <span className="text-right">$24.075</span>
             </p>
-            <button className="btn bg-purple-600 p-2 rounded-sm font-semibold cursor-pointer w-[300px] mt-7 my-0 mx-auto block">
-              Place Order
-            </button>
+            <Button variant="secondary">Place Order</Button>
           </div>
         </div>
       </div>

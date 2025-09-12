@@ -21,7 +21,9 @@ function App() {
               pastrami shankle rump ground round meatball.
             </p>
             <div className="absolute bottom-1">
-              <Button title={"Order Now"} icon={"arrowBendDown"} />
+              <Button variant="primary" icon={"arrowBendDown"}>
+                Order Now
+              </Button>
             </div>
           </div>
         </section>
