@@ -33,7 +33,7 @@ export const foodData = [
       {
         id: 3,
         name: "Brown Rice",
-        price: 10,
+        price: 12,
         description: "Healthy brown rice",
         icon: FaBowlRice,
       },
