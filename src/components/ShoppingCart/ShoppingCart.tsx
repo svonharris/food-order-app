@@ -5,7 +5,7 @@ const ShoppingCart = () => {
   return (
     <div>
       <h2 className="border-b border-b-white border-solid max-w-[50%] pb-10 font-bold text-2xl">
-        ShoppingCart
+        Shopping Cart
       </h2>
       <div className="grid grid-cols-2 gap-15">
         {/* Ordered Items List */}
