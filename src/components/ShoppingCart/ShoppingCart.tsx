@@ -1,3 +1,4 @@
+import OrderForm from "../Forms/OrderForm";
 import { BsQuestionCircleFill } from "react-icons/bs";
 // import { RiDeleteBin5Fill } from "react-icons/ri";
 
@@ -33,30 +34,35 @@ const ShoppingCart = () => {
               Remove
             </button>
           </div>
+          <div className="col-span-2 mt-5">
+            <OrderForm />
+          </div>
         </div>
         {/* Order Summary */}
-        <div className="p-5 bg-gray-500/75 rounded-md">
-          <h3 className="font-bold mb-3">Order Summary</h3>
-          <p className="mb-1 py-2 border-b border-b-white border-solid grid grid-cols-2">
-            <span className="flex flex-row items-center gap-1">
-              Subtotal
-              <BsQuestionCircleFill size={15} className="cursor-pointer" />
-            </span>
-            <span className="text-right">$22.50</span>
-          </p>
-          <p className="mb-1 py-2 border-b border-b-white border-solid grid grid-cols-2">
-            <span className="flex flex-row items-center gap-1">
-              Tax
-              <BsQuestionCircleFill size={15} className="cursor-pointer" />
-            </span>
-            <span className="text-right">$1.575</span>
-          </p>
-          <p className="font-bold mb-1 py-2 grid grid-cols-2">
-            Order total <span className="text-right">$24.075</span>
-          </p>
-          <button className="btn bg-purple-600 p-2 rounded-sm font-semibold cursor-pointer w-[300px] mt-7 my-0 mx-auto block">
-            Place Order
-          </button>
+        <div>
+          <div className="p-5 bg-gray-500/75 rounded-md">
+            <h3 className="font-bold mb-3">Order Summary</h3>
+            <p className="mb-1 py-2 border-b border-b-white border-solid grid grid-cols-2">
+              <span className="flex flex-row items-center gap-1">
+                Subtotal
+                <BsQuestionCircleFill size={15} className="cursor-pointer" />
+              </span>
+              <span className="text-right">$22.50</span>
+            </p>
+            <p className="mb-1 py-2 border-b border-b-white border-solid grid grid-cols-2">
+              <span className="flex flex-row items-center gap-1">
+                Tax
+                <BsQuestionCircleFill size={15} className="cursor-pointer" />
+              </span>
+              <span className="text-right">$1.575</span>
+            </p>
+            <p className="font-bold mb-1 py-2 grid grid-cols-2">
+              Order total <span className="text-right">$24.075</span>
+            </p>
+            <button className="btn bg-purple-600 p-2 rounded-sm font-semibold cursor-pointer w-[300px] mt-7 my-0 mx-auto block">
+              Place Order
+            </button>
+          </div>
         </div>
       </div>
     </div>
