@@ -3,13 +3,15 @@ import { BsQuestionCircleFill } from "react-icons/bs";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 import { useAppContext } from "../../AppContext";
-// import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const ShoppingCart = () => {
-  const { totals } = useAppContext();
-  // Compute grand total
-  const grandTotal = Object.values(totals).reduce((sum, curr) => sum + curr, 0);
-  const tax = Number((grandTotal * 0.07).toFixed(2));
+  const { selections } = useAppContext(); // Shared State variable
+  const allIngredients = Object.values(selections).flat();
+  const grandTotal = allIngredients.reduce(
+    (sum, ingred) => sum + ingred.price,
+    0
+  );
+  const tax = grandTotal * 0.07;
 
   return (
     <div>
@@ -21,15 +23,13 @@ const ShoppingCart = () => {
         <div className="grid grid-cols-2 mt-5">
           <div>
             <p className="text-sm">1. Bowl</p>
-            <p className="text-xs pl-4">
-              Ramen Noodles ($14.0), Pork Belly ($5.50), Kale ($2.00), Corn
-              ($1.00)
-            </p>
-            {Object.entries(totals).map(([category, total]) => (
-              <p key={category}>
-                {category}: ${total.toFixed(2)}
-              </p>
-            ))}
+            <ul className="text-xs pl-4">
+              {allIngredients.map((ingredient) => (
+                <li key={`${ingredient.name}-${ingredient.id}`}>
+                  {ingredient.name}: {ingredient.price.toFixed(2)} {""}
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
             <p>Price: ${grandTotal.toFixed(2)}</p>
@@ -43,8 +43,7 @@ const ShoppingCart = () => {
                 <option value="4">4</option>
               </select>
             </div>
-            <Button variant="link">Remove</Button>
-            <Link variant="primary">Edit</Link>
+            <Link variant="primary">Remove</Link>
           </div>
           <div className="col-span-2 mt-5">
             <OrderForm />
@@ -66,11 +65,13 @@ const ShoppingCart = () => {
                 Tax
                 <BsQuestionCircleFill size={15} className="cursor-pointer" />
               </span>
-              <span className="text-right">${tax}</span>
+              <span className="text-right">${tax.toFixed(2)}</span>
             </p>
             <p className="font-bold mb-1 py-2 grid grid-cols-2">
               Order total
-              <span className="text-right">${tax + grandTotal}</span>
+              <span className="text-right">
+                ${(tax + grandTotal).toFixed(2)}
+              </span>
             </p>
             <Button variant="secondary">Place Order</Button>
           </div>
