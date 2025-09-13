@@ -42,7 +42,8 @@ const Tab = (props: TabProps) => {
 
     setCategoryTotal(props.category, total);
     // Only re-run if selectedIds change
-  }, [selectedIds, props.ingredients, props.category, setCategoryTotal]);
+    // }, [selectedIds, props.ingredients, props.category, setCategoryTotal]);
+  }, [selectedIds]);
 
   return (
     <>
