@@ -1,21 +1,32 @@
 import { createContext, useContext, useState } from "react";
 
+type Ingredient = {
+  id: number;
+  name: string;
+  price: number;
+};
+
 type AppContextType = {
-  totals: Record<string, number>;
-  setCategoryTotal: (category: string, total: number) => void;
+  selections: Record<string, Ingredient[]>;
+  updateSelections: (category: string, ingredients: Ingredient[]) => void;
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [totals, setTotals] = useState<Record<string, number>>({});
+  const [selections, setSelections] = useState<Record<string, Ingredient[]>>(
+    {}
+  );
 
-  const setCategoryTotal = (category: string, total: number) => {
-    setTotals((prev) => ({ ...prev, [category]: total }));
+  const updateSelections = (category: string, ingredients: Ingredient[]) => {
+    setSelections((prev) => ({
+      ...prev,
+      [category]: ingredients,
+    }));
   };
 
   return (
-    <AppContext.Provider value={{ totals, setCategoryTotal }}>
+    <AppContext.Provider value={{ selections, updateSelections }}>
       {children}
     </AppContext.Provider>
   );
