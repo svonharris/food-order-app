@@ -9,6 +9,7 @@ const ShoppingCart = () => {
   const { totals } = useAppContext();
   // Compute grand total
   const grandTotal = Object.values(totals).reduce((sum, curr) => sum + curr, 0);
+  const tax = Number((grandTotal * 0.07).toFixed(2));
 
   return (
     <div>
@@ -65,10 +66,11 @@ const ShoppingCart = () => {
                 Tax
                 <BsQuestionCircleFill size={15} className="cursor-pointer" />
               </span>
-              <span className="text-right">$1.575</span>
+              <span className="text-right">${tax}</span>
             </p>
             <p className="font-bold mb-1 py-2 grid grid-cols-2">
-              Order total <span className="text-right">$24.075</span>
+              Order total
+              <span className="text-right">${tax + grandTotal}</span>
             </p>
             <Button variant="secondary">Place Order</Button>
           </div>
