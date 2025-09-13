@@ -8,7 +8,7 @@ import { useAppContext } from "../../AppContext";
 const ShoppingCart = () => {
   const { totals } = useAppContext();
   // Compute grand total
-  const grandTotal = Object.values(totals).reduce((sum, t) => sum + t, 0);
+  const grandTotal = Object.values(totals).reduce((sum, curr) => sum + curr, 0);
 
   return (
     <div>
