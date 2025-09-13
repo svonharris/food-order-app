@@ -3,6 +3,7 @@ import Button from "./components/Button/Button.tsx";
 import Tabs from "./components/Tabs/Tabs.tsx";
 import { foodData } from "./Data/Data.tsx";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart.tsx";
+import { AppProvider } from "./AppContext";
 
 import "./index.css";
 
@@ -28,15 +29,17 @@ function App() {
           </div>
         </section>
         {/* ordering */}
-        <section className="max-w-[1400px] mx-auto my-0 py-10 grid grid-cols-2">
-          <div>description and image</div>
-          {/* customization tabs */}
-          <Tabs data={foodData} />
-        </section>
-        {/* checkout */}
-        <section className="max-w-[1400px] mx-auto my-0 py-10">
-          <ShoppingCart />
-        </section>
+        <AppProvider>
+          <section className="max-w-[1400px] mx-auto my-0 py-10 grid grid-cols-2">
+            <div>description and image</div>
+            {/* customization tabs */}
+            <Tabs data={foodData} />
+          </section>
+          {/* checkout */}
+          <section className="max-w-[1400px] mx-auto my-0 py-10">
+            <ShoppingCart />
+          </section>
+        </AppProvider>
       </main>
     </>
   );
