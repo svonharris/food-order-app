@@ -3,7 +3,7 @@ import { PiArrowBendDownRightFill } from "react-icons/pi";
 
 type ButtonProps = {
   icon?: string;
-  variant?: "primary" | "secondary" | "link" | "danger";
+  variant?: "primary" | "secondary" | "danger";
   onClick?: () => void;
   children: React.ReactNode;
 };
@@ -30,11 +30,10 @@ const Button = ({ children, onClick, variant }: ButtonProps) => {
       ? "bg-transparent border-2 border-purple-600"
       : variant === "secondary"
       ? "bg-purple-600  w-[300px] mt-7 my-0 mx-auto"
-      : variant === "link"
-      ? "border-b border-b-purple-600 border-solid p-0 font-normal hover:font-semibold hover:border-b-white"
       : "";
 
   return (
+    // Write code to display styles if icon prop is passed
     <div className="flex flex-row items-center gap-1">
       <button className={`${baseClasses} ${variantClasses}`} onClick={onClick}>
         {children}
