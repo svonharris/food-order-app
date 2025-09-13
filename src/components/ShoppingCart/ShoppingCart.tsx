@@ -2,9 +2,14 @@ import OrderForm from "../Forms/OrderForm";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
+import { useAppContext } from "../../AppContext";
 // import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const ShoppingCart = () => {
+  const { totals } = useAppContext();
+  // Compute grand total
+  const grandTotal = Object.values(totals).reduce((sum, t) => sum + t, 0);
+
   return (
     <div>
       <h2 className="border-b border-b-white border-solid max-w-[50%] pb-10 font-bold text-2xl">
@@ -19,9 +24,14 @@ const ShoppingCart = () => {
               Ramen Noodles ($14.0), Pork Belly ($5.50), Kale ($2.00), Corn
               ($1.00)
             </p>
+            {Object.entries(totals).map(([category, total]) => (
+              <p key={category}>
+                {category}: ${total.toFixed(2)}
+              </p>
+            ))}
           </div>
           <div>
-            <p>Price: $22.50</p>
+            <p>Price: ${grandTotal.toFixed(2)}</p>
             {/* <p>Qty: 1 (- 1 +)</p> */}
             <div>
               <label htmlFor="quanity">Qty:</label>
@@ -48,7 +58,7 @@ const ShoppingCart = () => {
                 Subtotal
                 <BsQuestionCircleFill size={15} className="cursor-pointer" />
               </span>
-              <span className="text-right">$22.50</span>
+              <span className="text-right">${grandTotal.toFixed(2)}</span>
             </p>
             <p className="mb-1 py-2 border-b border-b-white border-solid grid grid-cols-2">
               <span className="flex flex-row items-center gap-1">
