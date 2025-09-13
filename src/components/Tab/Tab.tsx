@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAppContext } from "../../AppContext";
 
 type TabProps = {
@@ -13,37 +13,34 @@ type TabProps = {
   }[];
 };
 
-// const Tab = ({ category, ingredients, showCategory }: TabProps) => {
 const Tab = (props: TabProps) => {
-  const [selectedIds, setSelectedIds] = useState<number[]>([]); // Selected ingredient IDs
-  const { setCategoryTotal } = useAppContext();
+  // Selected ingredient IDs
+  const [selectedIds, setSelectedIds] = useState<number[]>([]);
+  const { updateSelections } = useAppContext(); // Shared update State function
 
   const handleFoodSelect = (id: number) => {
+    let updatedSelectedIds: number[] = [];
+
     if (props.category === "Base") {
       // Only one selection allowed
-      setSelectedIds((prev) => (prev.includes(id) ? [] : [id]));
+      updatedSelectedIds = selectedIds.includes(id) ? [] : [id];
     } else {
       // Multi-select for other categories
-      setSelectedIds((prev) =>
-        prev.includes(id)
-          ? prev.filter((itemId) => itemId !== id)
-          : [...prev, id]
+      updatedSelectedIds = selectedIds.includes(id)
+        ? selectedIds.filter((itemId) => itemId !== id)
+        : [...selectedIds, id];
+    }
+
+    setSelectedIds(updatedSelectedIds);
+
+    if (props.ingredients) {
+      const selectedIngredients = props.ingredients.filter((ingredient) =>
+        updatedSelectedIds.includes(ingredient.id)
       );
+
+      updateSelections(props.category, selectedIngredients);
     }
   };
-
-  // Update category total in whenever selection changes
-  useEffect(() => {
-    if (!props.ingredients) return;
-
-    const total = props.ingredients
-      .filter((ingredient) => selectedIds.includes(ingredient.id))
-      .reduce((sum, ingredient) => sum + ingredient.price, 0);
-
-    setCategoryTotal(props.category, total);
-    // Only re-run if selectedIds change
-    // }, [selectedIds, props.ingredients, props.category, setCategoryTotal]);
-  }, [selectedIds]);
 
   return (
     <>
@@ -70,7 +67,7 @@ const Tab = (props: TabProps) => {
             </div>
             <p className="my-1">{ingredient.name}</p>
             <p>{ingredient.description}</p>
-            <p className="block text-xs">+ ${ingredient.price.toFixed(2)}</p>
+            <p className="text-xs">+ ${ingredient.price.toFixed(2)}</p>
           </button>
         ))}
       </div>
