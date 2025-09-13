@@ -1,7 +1,13 @@
 import { useState } from "react";
 import Tab from "../Tab/Tab.tsx";
 
-type TabsProps = { data: {}[] };
+type TabsProps = {
+  data: {
+    category: string;
+    id: number;
+    ingredients: [];
+  }[];
+};
 
 const Tabs = (props: TabsProps) => {
   const [activeTab, setActiveTab] = useState("Base");
@@ -10,12 +16,14 @@ const Tabs = (props: TabsProps) => {
     setActiveTab(tabName);
   };
 
+  const viewAllString = "ViewAll";
+
   return (
     <>
       <div className="w-[100%]">
         {/* Tab Buttons Group */}
         <div className="flex gap-4">
-          {props.data.map((data: any) => (
+          {props.data.map((data) => (
             <button
               key={data.id}
               className={`cursor-pointer outline-purple-600 py-[14px] px-[16px] border-[1px] border-solid border-white hover:bg-purple-600 ${
@@ -28,26 +36,24 @@ const Tabs = (props: TabsProps) => {
           ))}
           <button
             className={`cursor-pointer outline-purple-600 py-[14px] px-[16px] border-[1px] border-solid border-white hover:bg-purple-600 ${
-              activeTab === "ViewAll" ? "bg-purple-600" : ""
+              activeTab === viewAllString ? "bg-purple-600" : ""
             }`}
-            onClick={() => {
-              handleTabClick("ViewAll");
-            }}
+            onClick={() => handleTabClick(viewAllString)}
           >
             View All
           </button>
         </div>
 
         {/* Tab Content */}
-        {props.data.map((data: any) => (
+        {props.data.map((data) => (
           <div
             key={data.id}
             className={`${
-              activeTab === data.category || activeTab === "ViewAll"
+              activeTab === data.category || activeTab === viewAllString
                 ? "flex"
                 : "hidden"
             } ${
-              activeTab === "ViewAll"
+              activeTab === viewAllString
                 ? "border-b border-solid border-b-white py-5"
                 : ""
             }`}
@@ -55,7 +61,7 @@ const Tabs = (props: TabsProps) => {
             <Tab
               category={data.category}
               ingredients={data.ingredients}
-              showCategory={activeTab === "ViewAll" ? true : false}
+              showCategory={activeTab === viewAllString ? true : false}
             />
           </div>
         ))}
